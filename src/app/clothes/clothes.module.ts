@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClothesRoutingModule } from './clothes-routing.module';
 import { ClothesComponent } from './components/clothes/clothes.component';
 import { SharedModule } from '../shared/shared.module';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 
 
 @NgModule({
@@ -15,7 +15,6 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     CommonModule,
     ClothesRoutingModule,
     HttpClientModule,
-    NgxSkeletonLoaderModule,
     SharedModule
   ]
 })
