@@ -1,0 +1,42 @@
+<!-- Spinner for loading -->
+<div class="spinner"  *ngIf="!spinner" class="vh-100 d-flex justify-content-center align-items-center">
+    <app-spinners></app-spinners>
+</div> 
+
+<!-- Beginning wish list page -->
+<section class="wish-list py-4" *ngIf="spinner">
+    <div class="container">
+         <!-- Check if productsCart not have any data or have -->
+        <div class="empty py-5" *ngIf="!productsWishList.length">
+            <h3 class="text-3xl text-center text-blueblack"> Your wish list is empty! </h3>
+            <div class="d-flex justify-content-center align-items-center mt-4">
+              <div class="bg-blueblack rounded-3">
+                <button class="btn text-white px-3 py-2" routerLink="/shop/products" >
+                     Back to shop 
+                 </button>
+              </div>
+            </div>
+        </div>
+        <div class="row py-4 gy-4">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6" *ngFor="let product of productsWishList; let index = index">
+                <div class="wish-item position-relative shadow-mine overflow-h rounded-3 pb-2 px-3">
+                    <div class="overflow-h rounded-3">
+                      <img [src]="product.thumbnail" class="w-100 rounded-3"/>
+                    </div>
+                    <div class="content d-flex align-items-center justify-content-between">
+                      <div class="title mt-2">
+                        <h3 class="fw-bold text-xl text-blueblack"> {{product.title | cutTitle }} </h3>
+                      </div>
+                      <div class="price">
+                        <h3 class="text-xl text-blueblack mt-2 text-upperCase"> ${{product.price.toFixed(0)}} </h3>
+                      </div>
+                </div>
+                <div class="removeWish position-absolute top-0 end-0 cursor p-2">
+                    <i class="fa-solid fa-heart-crack fa-xl" (click)="removeProductFromWish(index)"></i>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End wish list page -->

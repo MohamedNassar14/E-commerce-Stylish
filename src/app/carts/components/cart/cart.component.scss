@@ -1,0 +1,13 @@
+.cart
+{
+    max-width: 90%;
+    margin: auto;
+}
+@media screen and (max-width: 500px) 
+{
+    .cart-content h3
+    {
+        font-size: .85rem;
+        line-height: 1rem;
+    }
+}

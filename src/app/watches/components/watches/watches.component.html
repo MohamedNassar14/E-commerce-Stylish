@@ -1,0 +1,28 @@
+<!-- Spinner for loading -->
+<div class="spinner"  *ngIf="!spinner" class="vh-100 d-flex justify-content-center align-items-center">
+    <app-spinners></app-spinners>
+</div>
+
+<!-- Beginning watches page -->
+<section class="watches px-2" *ngIf="spinner">
+    <div class="container">
+        <h2 class="mt-5 fw-bold text-3xl text-bg text-center"> <span class="cursor title-effect"> Watches </span> </h2>
+        <!-- Beginning men watches -->
+        <div class="row py-4 gy-3">
+            <h2 class="fw-bold text-2xl text-bg pt-3 my-0"> <span class="cursor title-effect"> Men Watches </span> </h2>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6" *ngFor="let watch of menWatches">
+                <app-product [product]="watch" (sendProduct)="addToCart($event)" (sendProductWish)="addToWishList($event)"  (removeProductWish)="removeProductWishList($event)"></app-product>
+            </div>
+        </div>
+        <!-- End men watches -->
+        <!-- Beginning Women watches -->
+        <div class="row py-4 gy-3 mb-3" *ngIf="spinner">
+            <h2 class="fw-bold text-2xl text-bg pt-3 my-0"> <span class="cursor title-effect"> Women Watches </span> </h2>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6" *ngFor="let watch of womenWatches">
+                <app-product [product]="watch" (sendProduct)="addToCart($event)" (sendProductWish)="addToWishList($event)"  (removeProductWish)="removeProductWishList($event)"></app-product>
+            </div>
+        </div>
+        <!-- End Women Address -->
+    </div>
+</section>
+<!-- End sneakers page -->
