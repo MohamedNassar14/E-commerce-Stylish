@@ -1,0 +1,109 @@
+<!-- Beginning navbar -->
+<nav class="d-flex justify-content-between px-3 py-2 shadow-mine">
+   <div class="logo">
+      <a routerLink="home">
+        <h1 class="text-blueblack fw-bold text-gray text-2xl py-1 m-0"> Stylish </h1>
+      </a> 
+   </div>
+   <div class="menuLinks">
+      <ul class="d-flex m-0">
+        <li class="px-2 py-2"> <a routerLink="home" class="text-blueblack text-uppercase" routerLinkActive="active"> Home </a> </li>
+        <li class="px-2 py-2"> <a routerLink="shop/products" class="text-blueblack text-uppercase" routerLinkActive="active"> Shop </a> </li>
+      </ul>
+   </div>
+   <div class="menuList">
+      <ul class="d-flex m-0">
+         <li class="authorize px-2 py-2">
+           <a class="text-blueblack text-uppercase" routerLink="account/login" *ngIf="!isLogin">
+              Log in  
+           </a>
+         </li>
+         <li class="authorize px-2 py-2">
+           <a class="text-blueblack text-uppercase cursor" (click)="logOut()" *ngIf="isLogin">
+             Log Out
+           </a>
+         </li>
+         <li class="position-relative cursor p-2">
+           <a class="text-blueblack" routerLink="shop/wish-list">
+            <div class="heart">
+               <i class="fa-solid fa-heart fa-xl"></i>
+            </div>
+            <div class="wish bg-light-red text-white fw-bold position-absolute top-0 end-0 rounded-5 text-xs d-flex align-items-center justify-content-center">
+                {{wishListNumbers}}
+            </div>
+           </a>
+         </li>
+         <li class="position-relative cursor p-2">
+            <a class="text-blueblack cart" (click)="boxToggle()"> 
+                <div class="icon">
+                   <i class="fa-solid fa-cart-shopping fa-xl"></i>   
+                </div>
+                <div class="count bg-light-red text-white fw-bold position-absolute top-0 end-0 rounded-5 text-xs d-flex align-items-center justify-content-center">
+                   {{cartNumbers}}
+                </div>
+            </a>
+         </li>
+      </ul>
+   </div>
+   <div class="openList pt-1" (click)="openMenuList()" *ngIf="!menuToggle">
+      <i class="fa-solid fa-bars text-2xl text-blueblack"></i>
+   </div>
+   <div class="closeList pt-1" (click)="closeMenuList()" *ngIf="menuToggle">
+    <i class="fa-solid fa-xmark text-2xl text-blueblack"></i>
+   </div>
+   <div class="dropMenu" [style.height]="maxHeightMenu" >
+    <ul class="px-3 py-3">
+      <li class="py-2"> <a routerLink="home" class="text-white"> Home </a> </li>
+      <li class="py-2"> <a routerLink="shop/products" class="text-white"> Shop </a> </li>
+      <li class="py-2"> <a routerLink="/pages/about" class="text-white"> About Us </a> </li>
+      <li class="py-2"> <a routerLink="/pages/contact" class="text-white"> Contact us </a> </li>
+      <li class="pt-1">
+        <a class="text-white cursor" routerLink="account/login" *ngIf="!isLogin">
+           Log in  
+        </a>
+      </li >
+      <li class="pt-1">
+        <a class="text-white cursor" (click)="logOut()" *ngIf="isLogin">
+          Log Out
+        </a>
+      </li>
+   </ul>
+   </div>
+</nav>
+
+<!-- End navbar -->
+<!-- Beginning sidebar -->
+<aside class="drop bg-white rounded-3 smooth shadow-mine border border-2" *ngIf="dropDown">
+  <!-- Check if sidebar not have any data or have  -->
+   <div class="empty py-3" *ngIf="!productsCart.length">
+    <h3 class="text-2xl text-center text-blueblack"> Your cart is empty! </h3>
+    <div class="d-flex justify-content-center align-items-center mt-4">
+      <div class="bg-blueblack rounded-3">
+        <button class="btn text-white px-3 py-2" routerLink="/shop/products" >
+             Back to shop 
+         </button>
+      </div>
+    </div>
+   </div>
+   <!-- Content of the sidebar  -->
+   <div class="box bg-white px-2" *ngIf="productsCart.length">
+    <div class="bg-mine rounded-3 shadow-mine mb-2" *ngFor="let product of productsCart">
+      <div class="col-md-12">
+         <div class="content d-flex p-2">
+            <div class="photo">
+                <img [src]="product.product.thumbnail" class="img-sm" loading="lazy"/>
+            </div>
+            <div class="info ms-4 text-sm">
+               <p> {{product.product.title | cutTitle}} </p>
+               <p> ${{(product.product.price * product.quantity).toFixed(0)}} </p>
+            </div>
+         </div>
+      </div>
+    </div>
+   </div>
+ <button class="btn checkout px-4 text-upperCase text-white"  routerLink="shop/carts"> Go To Checkout </button>
+ <div class="close cursor text-black fw-bold position-absolute top-0 end-0 rounded-3 text-xl d-flex align-items-center justify-content-center" (click)="boxToggle()">
+  X
+</div>
+</aside>
+<!-- End sidebar -->

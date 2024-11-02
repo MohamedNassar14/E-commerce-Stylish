@@ -1,0 +1,46 @@
+<!-- Spinner for loading  -->
+<div class="spinner"  *ngIf="!spinner" class="vh-100 d-flex justify-content-center align-items-center">
+    <app-spinners></app-spinners>
+</div>
+
+<!-- beginning shop page -->
+<section class="all-products px-2" *ngIf="spinner">
+    <div class="container">
+        <h2 class="text-blueblack fw-bold text-center text-3xl mt-5"> <span class="cursor title-effect"> Welcome To Stylish </span> </h2>
+        <!-- beginning clothes content -->
+        <div class="row py-4 gy-3">
+            <h2 class="fw-bold text-2xl text-uppercase pt-3 my-0"><a routerLink="/shop/clothes" class="title-effect text-blueblack"> Clothes </a></h2>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6" *ngFor="let clothe of allClothes; let index = index">
+                <app-product [product]="clothe" (sendProduct)="addToCart($event)" (sendProductWish)="addToWishList($event)"  (removeProductWish)="removeProductWishList($event)"></app-product>
+            </div>
+        </div>
+        <!-- End clothes content -->
+        <!-- beginning Sneakers content -->
+        <div class="row py-4 gy-3">
+            <h2 class="fw-bold text-2xl text-uppercase pt-3 my-0"><a routerLink="/shop/sneakers" class="title-effect text-blueblack"> Sneakers </a></h2>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6" *ngFor="let shoes of allShoes">
+                <app-product [product]="shoes" (sendProduct)="addToCart($event)" (sendProductWish)="addToWishList($event)"  (removeProductWish)="removeProductWishList($event)"></app-product>
+            </div>
+        </div>
+        <!-- End Sneakers content -->
+        <!-- beginning Watches content -->
+        <div class="row py-4 gy-3">
+            <h2 class="fw-bold text-2xl text-uppercase pt-3 my-0"><a routerLink="/shop/watches" class="title-effect text-blueblack"> Watches </a></h2> 
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6" *ngFor="let watch of allWatches">
+                <app-product [product]="watch" (sendProduct)="addToCart($event)" (sendProductWish)="addToWishList($event)"  (removeProductWish)="removeProductWishList($event)"></app-product>
+            </div>
+        </div>
+        <!-- End Watches content -->
+        <!-- beginning Bags content -->
+        <div class="row py-4 gy-3 mb-3">
+            <h2 class="fw-bold text-2xl text-uppercase pt-3 my-0"><a routerLink="/shop/bags" class="category text-blueblack"> Bags </a></h2>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6" *ngFor="let shoes of allBags">
+                <app-product [product]="shoes" (sendProduct)="addToCart($event)" (sendProductWish)="addToWishList($event)"  (removeProductWish)="removeProductWishList($event)"></app-product>
+            </div>
+        </div>
+        <!-- End Bags content -->
+    </div>
+</section>
+<!-- End shop page -->
+
+

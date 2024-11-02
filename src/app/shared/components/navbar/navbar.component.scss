@@ -1,0 +1,134 @@
+.drop
+{
+    width: 18rem;
+    height: 18.5rem;
+    position: absolute;
+    z-index: 15;
+    top: 56px;
+    right: 20px;
+    padding-top: 20px;   
+}
+.box
+{
+    width: 16rem;
+    height: 14.5rem;
+    overflow: auto;
+    margin: auto;
+}
+.smooth
+{
+   animation-name: fade-out;
+   animation-duration: 1s;
+   animation-direction: alternate;
+}
+@keyframes fade-out {
+    from{
+        opacity: 0.5;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.wish
+{
+    width: 1rem;
+    height: 1rem;
+}
+.count
+{
+    @extend .wish
+}
+.checkout
+{
+    height: 2.5rem;
+    width: 15.6rem;
+    position: absolute;
+    z-index: 20;
+    right: 14.5px;
+    top: 15.5rem;
+    background-color: rgb(31, 41, 55);
+}
+.active
+{
+    color: red !important;
+}
+.close
+{
+    width: 1rem;
+    height: 1rem;
+    transition: all .3s ease-in-out;
+    &:hover
+    {
+        transform: rotate(180deg);
+    }
+}
+.menuLinks
+{
+    display: flex;
+    padding-left: 5rem;
+}
+.openList
+{
+    display: none;
+}
+.closeList
+{
+    display: none;
+}
+.dropMenu
+{
+    display: none;
+    transition: all .5s;
+}
+@media screen and (max-width: 600px)
+{
+    .dropMenu
+    {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 56px;
+        height: 0;
+        background-color: #001737;
+        backdrop-filter: blur(30px);
+        z-index: 1000;
+        overflow: hidden;
+        transition: all .5s;
+    }
+    .menuLinks
+    {
+        display: none;
+    }
+    .openList
+    {
+        display: block;
+        width: 1rem;
+        padding-right: 1.25rem;
+    }
+    .closeList
+    {
+        display: block;
+        width: 1rem;
+        padding-right: 1.25rem;
+    }
+    .menuList
+    {
+        margin-left: auto;
+        margin-right: 1rem;
+
+    }
+    .authorize
+    {
+        display: none;
+    }
+    .icon i
+    {
+
+        font-size: 1.35rem;
+    }
+    .heart i
+    {
+        font-size: 1.35rem;
+    }
+}

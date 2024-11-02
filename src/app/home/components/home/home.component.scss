@@ -1,0 +1,50 @@
+.header
+{
+    background-image: url('../../../../assets/images/header.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+.show
+{
+    &:hover
+    {
+        transform: scale(1.1, 1.1);
+    }
+    transition: all .5s ease-in-out;
+}
+@media screen and (max-width:600px)
+{
+    h4
+    {
+        font-size: 1.75rem;
+        line-height: 2rem;
+    }
+    .show
+    {
+        a
+        {     
+            font-size: .875rem !important;
+            line-height: 1.25rem;
+            padding-right: 20px !important;
+            padding-left: 20px !important;
+        }
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 992px)
+{
+    .categories
+    {
+        .categories-content
+        {
+            display: flex;
+            justify-content: center;
+        }
+        .category
+        {
+            width: 40% !important;
+            
+        }
+    }
+}

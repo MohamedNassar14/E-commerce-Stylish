@@ -1,0 +1,30 @@
+<div class="item shadow-mine overflow-hidden rounded-3 position-relative mb-1">
+    <div class="image bg-mine">
+        <a [routerLink]="['/shop/products/product-details', product.id]">
+            <div class="overflow-hidden rounded-3">
+                <img [src]="product.thumbnail" class="w-100 rounded-3" loading="lazy"/>
+            </div>
+        </a>
+    </div>
+    <div class="content d-flex justify-content-between align-items-center px-3 mb-1">
+        <div class="title">
+            <h3 class="text-xl text-gray mt-2 text-upperCase"> {{product.title | cutTitle}} </h3>
+        </div>
+        <div class="price">
+            <span class="text-xl text-gray mt-2 text-upperCase"> ${{product.price.toFixed(0)}} </span>
+         </div>
+    </div>
+    <div class="info d-flex justify-content-center pb-3">
+        <div class="bg-blueblack rounded-5 px-3">
+            <button class="btn text-white" (click)="add()"> Add To Cart </button>
+        </div>
+    </div>
+    <div class="wish text-black mt-2 cursor position-absolute end-0 top-0 me-1">
+        <i *ngIf="!isWish" class="fa-regular fa-heart fa-xl" (click)="productWish()"></i>
+        <i *ngIf="isWish" class="fa-solid fa-heart fa-xl" (click)="removeProduct()"></i>
+    </div>
+    <div class="offer position-absolute start-0 top-0">
+         <span class="text-xs"> Save 40% </span>
+    </div>
+</div> 
+ 

@@ -1,0 +1,24 @@
+.slider {
+  height: 90vh;
+  position: relative;
+}
+
+.show {
+  transition: all 0.5s ease-in-out;
+}
+.show:hover {
+  transform: scale(1.1, 1.1);
+}
+
+@media screen and (max-width: 500px) {
+  h4 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+  .show a {
+    font-size: 0.875rem !important;
+    line-height: 1.25rem;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+  }
+}/*# sourceMappingURL=home.component.css.map */

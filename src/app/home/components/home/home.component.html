@@ -1,0 +1,89 @@
+<!-- beginning header -->
+<header class="header">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <button class="shops btn text-uppercase fw-bold text-xl text-gray rounded-5 shadow-mine" routerLink="/shop/products"> Shop Now </button>
+    </div>
+</header>
+<!-- End header -->
+<!-- beginning categories -->
+<section class="categories px-2 pt-4">
+    <div class="container">
+        <h4 class="text-blueblack fw-bold text-center py-3 text-3xl"> <span class="cursor title-effect"> Check out every category </span> </h4>
+        <div class="row categories-content py-4 gy-4">
+            <div class="category col-lg-3 col-md-6 col-sm-6 col-6">
+                <div class="item text-center bg-gray pb-4 rounded-4 shadow-gray">
+                    <div class="overflow-hidden cover">
+                        <img src="../../../../assets/images/t-shirts.webp" alt="image.shirts" class="img-md w-100"/>
+                    </div>
+                    <h2 class="text-upperCase fw-bold text-gray text-xl my-2"> Clothes </h2>
+                    <div class="show">
+                       <a routerLink="/shop/clothes" class="text-white bg-blueblack px-4 py-2 rounded-5 text-sm"> Show Collections </a>
+                    </div>
+                </div>
+            </div>
+            <div class="category col-lg-3 col-md-6 col-sm-6 col-6">
+                <div class="item text-center bg-gray pb-4 rounded-4 shadow-gray">
+                    <div class="overflow-hidden cover">
+                        <img src="../../../../assets/images/sneakers.webp" alt="image.sneakers" class="img-md w-100"/>
+                    </div>
+                    <h2 class="text-upperCase fw-bold text-gray text-xl my-2"> Sneakers </h2>
+                    <div class="show">
+                       <a routerLink="/shop/sneakers" class="text-white bg-blueblack px-4 py-2 rounded-5 text-sm"> Show Collections </a>
+                    </div>
+                </div>
+            </div>
+            <div class="category col-lg-3 col-md-6 col-sm-6 col-6">
+                <div class="item text-center bg-gray pb-4 rounded-4 shadow-gray">
+                    <div class="overflow-hidden cover">
+                        <img src="../../../../assets/images/watches.webp" alt="image.watches" class="img-md w-100"/>
+                    </div>
+                    <h2 class="text-upperCase fw-bold text-gray text-xl my-2"> Watches </h2>
+                    <div class="show">
+                        <a routerLink="/shop/sneakers" class="text-white bg-blueblack px-4 py-2 rounded-5 text-sm"> Show Collections </a>
+                    </div>
+                </div>
+            </div>
+            <div class="category col-lg-3 col-md-6 col-sm-6 col-6">
+                <div class="item text-center bg-gray pb-4 rounded-4 shadow-gray">
+                    <div class="overflow-hidden cover">
+                        <img src="../../../../assets/images/bags.webp" alt="image.bags" class="img-md w-100"/>
+                    </div>
+                    <h2 class="text-upperCase fw-bold text-gray text-xl my-2"> Bags </h2>
+                    <div class="show">
+                        <a routerLink="/shop/bags" class="text-white bg-blueblack px-4 py-2 rounded-5 text-sm"> Show Collections </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End categories -->
+ <!-- beginning best sellers -->
+<section class="best-sellers px-2 pt-4">
+   <h3 class="text-blueblack fw-bold text-center pt-5 pb-4 text-3xl"> <span class="cursor title-effect"> Best Sellers </span> </h3>
+   <div class="container">
+       <div class="slider">
+        <owl-carousel-o [options]="bestSellers">
+            <ng-template carouselSlide *ngFor="let best of bestSellersProducts">
+                <app-product [product]="best" (sendProduct)="addToCart($event)" (sendProductWish)="addToWishList($event)"  (removeProductWish)="removeProductWishList($event)"></app-product>
+            </ng-template>  
+        </owl-carousel-o>         
+       </div>
+   </div>
+</section>
+<!-- End best sellers -->
+<!-- beginning special offers  -->
+<section class="special-offers px-2 pt-4 mb-5">
+   <h3 class="text-blueblack fw-bold text-center pt-5 pb-4 text-3xl"> <span class="cursor title-effect"> Special Offers  </span> </h3>
+   <div class="container">
+      <div class="slider">
+        <owl-carousel-o [options]="specialOffers">
+            <ng-template carouselSlide *ngFor="let best of specialOffersProducts">
+                <app-product-offers [product]="best" (sendProduct)="addToCart($event)" (sendProductWish)="addToWishList($event)"  (removeProductWish)="removeProductWishList($event)"></app-product-offers>
+            </ng-template>  
+        </owl-carousel-o>
+      </div>
+   </div>
+</section>
+<!-- End special offers -->
+ 

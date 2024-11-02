@@ -1,0 +1,20 @@
+<!-- beginning login page -->
+<section class="login px-2 py-4">
+    <div class="container d-flex justify-content-center">
+        <div class="login-content mt-5 col-lg-6 col-md-9 col-12">
+            <div *ngIf="error" class="alert alert-danger"> {{error}} </div>
+            <form [formGroup]="loginForm" (ngSubmit)="submitLogin(loginForm)">
+                <input type="email" formControlName="email" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Email"/>
+    
+                <input type="password" formControlName="password" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Password"/>
+    
+                <button class="btn bg-blueblack text-white tracking-wider w-100 p-2 mb-3" type="submit" [disabled]="loginForm.invalid"> 
+                    <span *ngIf="!isLoading"> Login </span>
+                    <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+                </button>
+            </form>
+            <p> Don't have an account? <a routerLink="/account/register" class="text-primary"> Register </a> </p>
+        </div>
+    </div>
+</section>
+<!-- End register page -->
