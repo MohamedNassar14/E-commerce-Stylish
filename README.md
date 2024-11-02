@@ -11,3 +11,5 @@ This is an e-commerce clothing app built with Angular, Utilizing various technol
 Angular, Angular Material for toastify, Stripe, Sass, Context API
 ## Contributing
 Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
+## Live Preview
+https://e-commerce-stylish.vercel.app
