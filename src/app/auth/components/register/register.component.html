@@ -13,11 +13,12 @@
             <input type="email" formControlName="email" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Email"/>
             <div class="alert alert-danger py-2" *ngIf="registerForm.get('email')!.errors && registerForm.get('email')!.touched">
                 <p class="m-0" *ngIf="registerForm.get('email')!.getError('required')"> Email is required </p>
-                <p class="m-0" *ngIf="registerForm.get('email')!.getError('email')"> Email format invalid </p>
+                <p class="m-0" *ngIf="registerForm.get('email')!.getError('pattern')"> Must be at least 6 chars  </p>
             </div>
             <input type="password" formControlName="password" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Password"/>
             <div class="alert alert-danger py-2 mt-2 mb-2" *ngIf="registerForm.get('password')!.errors && registerForm.get('password')!.touched">
                <p class="m-0" *ngIf="registerForm.get('password')!.getError('required')"> Password is required </p>
+               <p class="m-0" *ngIf="registerForm.get('password')!.getError('pattern')"> Must be at least 6 chars </p>
             </div>
             <input type="password" formControlName="rePassword" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Confirm Password"/>
             <div class="alert alert-danger py-2 mt-2 mb-2" *ngIf="registerForm.get('rePassword')!.errors && registerForm.get('rePassword')!.touched">
@@ -26,9 +27,10 @@
             <div class="alert alert-danger py-2 mt-2 mb-2" *ngIf="registerForm.errors?.['passwordMismatch'] && registerForm.get('rePassword')?.touched">
                 <p class="m-0"> Confirm Password is incorrect </p>
             </div>
-            <input type="number" formControlName="phone" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Phone"/>
+            <input type="tel" formControlName="phone" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Phone"/>
             <div class="alert alert-danger py-2" *ngIf="registerForm.get('phone')!.errors && registerForm.get('phone')!.touched">
                 <p class="m-0" *ngIf="registerForm.get('phone')!.getError('required')"> Phone is required </p>
+                <p class="m-0" *ngIf="registerForm.get('phone')!.getError('pattern')"> Accept only egypt phone numbers </p>
             </div>
             <button type="submit" [disabled]="registerForm.invalid" class="btn bg-blueblack text-white tracking-wider w-100 p-2 mb-3"> 
                   <span *ngIf="!isLoading"> Register </span>    

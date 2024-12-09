@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   constructor(private _AuthService:AuthService, private _Router:Router, private toast:ToastrService) {}
 
   loginForm:FormGroup = new FormGroup({
-    email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required])
+    email: new FormControl(null, [Validators.required, Validators.pattern(/^\w{6,}@gmail.com$/)]),
+    password: new FormControl(null, [Validators.required, Validators.pattern(/^\w{6,}$/)])
   })
   error:string = '';
   isLoading:boolean = false;

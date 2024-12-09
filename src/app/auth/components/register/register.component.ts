@@ -16,10 +16,10 @@ export class RegisterComponent implements OnInit {
 
   registerForm:FormGroup = new FormGroup({
     name: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
-    email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required]),
+    email: new FormControl(null, [Validators.required, Validators.pattern(/^\w{6,}@gmail.com$/)]),
+    password: new FormControl(null, [Validators.required, Validators.pattern(/^\w{6,}$/)]),
     rePassword: new FormControl(null, [Validators.required]),
-    phone: new FormControl(null, [Validators.required]),
+    phone: new FormControl(null, [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)]),
   }, { validators: this.passwordMatchValidator});
   error:string = '';
   isLoading:boolean = false; 

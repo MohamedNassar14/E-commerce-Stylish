@@ -5,9 +5,15 @@
             <div *ngIf="error" class="alert alert-danger"> {{error}} </div>
             <form [formGroup]="loginForm" (ngSubmit)="submitLogin(loginForm)">
                 <input type="email" formControlName="email" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Email"/>
-    
+                <div class="alert alert-danger py-2" *ngIf="loginForm.get('email')!.errors && loginForm.get('email')!.touched">
+                    <p class="m-0" *ngIf="loginForm.get('email')!.getError('required')"> Email is required </p>
+                    <p class="m-0" *ngIf="loginForm.get('email')!.getError('pattern')"> Must be at least 6 chars  </p>
+                </div>
                 <input type="password" formControlName="password" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Password"/>
-    
+                <div class="alert alert-danger py-2 mt-2 mb-2" *ngIf="loginForm.get('password')!.errors && loginForm.get('password')!.touched">
+                  <p class="m-0" *ngIf="loginForm.get('password')!.getError('required')"> Password is required </p>
+                  <p class="m-0" *ngIf="loginForm.get('password')!.getError('pattern')"> Must be at least 6 chars </p>
+                </div>    
                 <button class="btn bg-blueblack text-white tracking-wider w-100 p-2 mb-3" type="submit" [disabled]="loginForm.invalid"> 
                     <span *ngIf="!isLoading"> Login </span>
                     <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
