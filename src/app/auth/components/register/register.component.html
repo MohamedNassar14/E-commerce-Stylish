@@ -1,26 +1,14 @@
 <!-- beginning register page -->
 <section class="register px-2 py-4">
-  <div class="container d-flex justify-content-center">
+  <div class="container d-flex justify-content-center"> 
     <div class="register-content mt-5 col-lg-6 col-md-9 col-12">
         <div *ngIf="error" class="alert alert-danger"> {{error}} </div>
         <form [formGroup]="registerForm" (ngSubmit)="submitRegister(registerForm)">
-            <input type="text" formControlName="first_name" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="First Name"/>
-            <div class="alert alert-danger py-2 mt-2 mb-2" *ngIf="registerForm.get('first_name')!.errors && registerForm.get('first_name')!.touched">
-                <p class="m-0" *ngIf="registerForm.get('first_name')?.getError('required')" > First name is required </p>
-                <p class="m-0" *ngIf="registerForm.get('first_name')?.getError('minlength')"> First name is min length is 3 </p>
-                <p class="m-0" *ngIf="registerForm.get('first_name')?.getError('maxlength')"> First name is max length is 15 </p>
-            </div> 
-            <input type="text" formControlName="last_name" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Last Name"/>
-            <div class="alert alert-danger py-2 mt-2 mb-2" *ngIf="registerForm.get('last_name')!.errors && registerForm.get('last_name')!.touched">
-                <p class="m-0" *ngIf="registerForm.get('last_name')!.getError('required')"> Last name is required </p>
-                <p class="m-0" *ngIf="registerForm.get('last_name')!.getError('minlength')"> Last name is min length is 3 </p>
-                <p class="m-0" *ngIf="registerForm.get('last_name')!.getError('maxlength')"> Last name is max length is 15 </p>
-            </div>
-            <input type="number" formControlName="age" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Age"/>
-            <div class="alert alert-danger py-2 mt-2 mb-2" *ngIf="registerForm.get('age')!.errors && registerForm.get('age')!.touched">
-                <p class="m-0" *ngIf="registerForm.get('age')!.getError('required')"> Age is required </p>
-                <p class="m-0" *ngIf="registerForm.get('age')!.getError('min')"> Age is min value is 3 </p>
-                <p class="m-0" *ngIf="registerForm.get('age')!.getError('max')"> Age is max value is 90 </p>
+            <input type="text" formControlName="name" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Name"/>
+            <div class="alert alert-danger py-2 mt-2 mb-2" *ngIf="registerForm.get('name')!.errors && registerForm.get('name')!.touched">
+                <p class="m-0" *ngIf="registerForm.get('name')?.getError('required')" > Name is required </p>
+                <p class="m-0" *ngIf="registerForm.get('name')?.getError('minlength')"> Name is min length is 3 </p>
+                <p class="m-0" *ngIf="registerForm.get('name')?.getError('maxlength')"> Name is max length is 15 </p>
             </div>
             <input type="email" formControlName="email" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Email"/>
             <div class="alert alert-danger py-2" *ngIf="registerForm.get('email')!.errors && registerForm.get('email')!.touched">
@@ -30,6 +18,17 @@
             <input type="password" formControlName="password" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Password"/>
             <div class="alert alert-danger py-2 mt-2 mb-2" *ngIf="registerForm.get('password')!.errors && registerForm.get('password')!.touched">
                <p class="m-0" *ngIf="registerForm.get('password')!.getError('required')"> Password is required </p>
+            </div>
+            <input type="password" formControlName="rePassword" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Confirm Password"/>
+            <div class="alert alert-danger py-2 mt-2 mb-2" *ngIf="registerForm.get('rePassword')!.errors && registerForm.get('rePassword')!.touched">
+               <p class="m-0"> Confirm Password is required </p>
+            </div>
+            <div class="alert alert-danger py-2 mt-2 mb-2" *ngIf="registerForm.errors?.['passwordMismatch'] && registerForm.get('rePassword')?.touched">
+                <p class="m-0"> Confirm Password is incorrect </p>
+            </div>
+            <input type="number" formControlName="phone" class="form-control p-2 mb-3 border-2 border-gray-300" placeholder="Phone"/>
+            <div class="alert alert-danger py-2" *ngIf="registerForm.get('phone')!.errors && registerForm.get('phone')!.touched">
+                <p class="m-0" *ngIf="registerForm.get('phone')!.getError('required')"> Phone is required </p>
             </div>
             <button type="submit" [disabled]="registerForm.invalid" class="btn bg-blueblack text-white tracking-wider w-100 p-2 mb-3"> 
                   <span *ngIf="!isLoading"> Register </span>    

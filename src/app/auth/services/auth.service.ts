@@ -31,13 +31,12 @@ export class AuthService {
 
   signUp(userData:object):Observable<any>
   {  
-    return this._HttpClient.post(`https://movies-api.routemisr.com/signup`, userData);
-
+    return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/signup`, userData);
   }
 
   signIn(userData:object):Observable<any>
   {
-    return this._HttpClient.post(`https://movies-api.routemisr.com/signin`, userData);
+    return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/signin`, userData);
   }
 
   signOut()
