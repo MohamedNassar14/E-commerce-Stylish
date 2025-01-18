@@ -8,7 +8,7 @@ This is an e-commerce clothing app built with Angular, Utilizing various technol
 - Context API for efficient state management.
 - Responsive design for optimal viewing across various devices.
 ## Tech Stack
-Angular, Angular Material for toastify, Stripe, Sass, Context API
+Angular, Angular Material, SCSS, Stripe, Context API
 ## Contributing
 Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
 ## Live Preview
